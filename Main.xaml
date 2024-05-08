@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:Annotation.AnnotationText="UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9" sap:VirtualizedContainerService.HintSize="1156,941" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:Annotation.AnnotationText="UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9" sap:VirtualizedContainerService.HintSize="1156,913" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -93,7 +93,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1062,876" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1096,848" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -112,17 +112,31 @@
       </sap:WorkflowViewStateService.ViewState>
       <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Ask user for credit" DisplayName="Get Credit and Drink Selection" sap:VirtualizedContainerService.HintSize="215,140" sap2010:WorkflowViewState.IdRef="State_1">
         <State.Entry>
-          <Sequence sap:VirtualizedContainerService.HintSize="416,400" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence sap:VirtualizedContainerService.HintSize="512,622" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="354,315" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="[&quot;Credit available: $&quot; + CreditAmount.ToString + &quot; Pick the amount of credit to add:&quot;]" OptionsString="0;5;10;20;Exit" Title="Credit">
-              <ui:InputDialog.Result>
-                <OutArgument x:TypeArguments="x:String">[CreditInput]</OutArgument>
-              </ui:InputDialog.Result>
-            </ui:InputDialog>
+            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="450,537" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+              <ui:InterruptibleDoWhile.Body>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,400" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="354,315" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="[&quot;Credit available: $&quot; + CreditAmount.ToString + &quot; Pick the amount of credit to add:&quot;]" OptionsString="0;5;10;20;Exit" Title="Credit">
+                    <ui:InputDialog.Result>
+                      <OutArgument x:TypeArguments="x:String">[CreditInput]</OutArgument>
+                    </ui:InputDialog.Result>
+                  </ui:InputDialog>
+                </Sequence>
+              </ui:InterruptibleDoWhile.Body>
+              <ui:InterruptibleDoWhile.Condition>
+                <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="CreditInput =&quot;&quot;" />
+              </ui:InterruptibleDoWhile.Condition>
+            </ui:InterruptibleDoWhile>
           </Sequence>
         </State.Entry>
         <sap:WorkflowViewStateService.ViewState>
@@ -170,13 +184,11 @@
                 <x:Int32 x:Key="DestConnectionPointIndex">29</x:Int32>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Transition.Condition>
-              <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="CreditInput.IsNumeric" />
-            </Transition.Condition>
+            <Transition.Condition>[CreditInput.IsNumeric]</Transition.Condition>
             <Transition.To>
-              <State x:Name="__ReferenceID5" sap2010:Annotation.AnnotationText="Select Drink" DisplayName="Drink Selection" sap:VirtualizedContainerService.HintSize="179,137" sap2010:WorkflowViewState.IdRef="State_8">
+              <State x:Name="__ReferenceID5" sap2010:Annotation.AnnotationText="Select Drink" DisplayName="Drink Selection" sap:VirtualizedContainerService.HintSize="638,1674" sap2010:WorkflowViewState.IdRef="State_8">
                 <State.Entry>
-                  <Sequence sap:VirtualizedContainerService.HintSize="592,1064" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence sap:VirtualizedContainerService.HintSize="592,1286" sap2010:WorkflowViewState.IdRef="Sequence_12">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -190,11 +202,25 @@
                         <InArgument x:TypeArguments="x:Int32">[CreditAmount + Convert.ToInt32(CreditInput)]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="530,324" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="Select the drink you want:" OptionsString="Coffee($3); Tea($2)" Title="Select Drink">
-                      <ui:InputDialog.Result>
-                        <OutArgument x:TypeArguments="x:String">[DrinkSelection]</OutArgument>
-                      </ui:InputDialog.Result>
-                    </ui:InputDialog>
+                    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="530,546" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+                      <ui:InterruptibleDoWhile.Body>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,400" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="354,315" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="Select the drink you want:" OptionsString="Coffee($3); Tea($2)" Title="Select Drink">
+                            <ui:InputDialog.Result>
+                              <OutArgument x:TypeArguments="x:String">[DrinkSelection]</OutArgument>
+                            </ui:InputDialog.Result>
+                          </ui:InputDialog>
+                        </Sequence>
+                      </ui:InterruptibleDoWhile.Body>
+                      <ui:InterruptibleDoWhile.Condition>
+                        <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="DrinkSelection = &quot;&quot;" />
+                      </ui:InterruptibleDoWhile.Condition>
+                    </ui:InterruptibleDoWhile>
                     <If Condition="[DrinkSelection = &quot;Coffee($3)&quot;]" sap:VirtualizedContainerService.HintSize="530,541" sap2010:WorkflowViewState.IdRef="If_3">
                       <If.Then>
                         <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,190" sap2010:WorkflowViewState.IdRef="Sequence_10">
@@ -252,9 +278,7 @@
                         <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Transition.Condition>
-                      <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="DrinkAmount &gt;= CreditAmount" />
-                    </Transition.Condition>
+                    <Transition.Condition>[DrinkAmount &gt;= CreditAmount]</Transition.Condition>
                     <Transition.To>
                       <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Insufficient Credit. Need to ask to add more credit" DisplayName="Not enough Credit" sap:VirtualizedContainerService.HintSize="205,178" sap2010:WorkflowViewState.IdRef="State_6">
                         <State.Entry>
@@ -355,9 +379,7 @@
                         <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Transition.Condition>
-                      <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="CreditAmount &gt;= DrinkAmount" />
-                    </Transition.Condition>
+                    <Transition.Condition>[CreditAmount &gt;= DrinkAmount]</Transition.Condition>
                     <Transition.To>
                       <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Distribute drink and adjust credit" DisplayName="Dispense Drink" sap:VirtualizedContainerService.HintSize="197,156" sap2010:WorkflowViewState.IdRef="State_3">
                         <State.Entry>
